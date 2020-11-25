@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #3B3B3B;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*******************************************************
+*                                                      *
+*                    Header styles                     *
+*                                                      *
+*******************************************************/
+.agenda-header {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #E10000;
+  height: 95px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.agenda-header-month {
+  margin-top: 20px;
+  font-family: Ubuntu;
+  font-size: 48px;
+  /* flex-grow: 2; */
+}
+
+.agenda-header-year {
+  font-family: Orbitron;
+  font-size: 18px;
+  /* flex-grow: 1 */
+  justify-content: flex-end;
+}
+
+.less-than {
+  font-size: 48px;
+  margin-right: 50px;
+}
+
+.great-than {
+  font-size: 48px;
+  margin-left: 50px;
+}
+
+/*******************************************************
+*                                                      *
+*                    Table styles                      *
+*                                                      *
+*******************************************************/
+.table-agenda {
+  width: 100%;
+  height: 100%;
+  border-spacing: 5px;
+  
+}
+
+.table-head {
+  background-color: #BDF590;
+  font-family: Ubuntu;
+  height: 21px;
+  font-size: 18px;
+}
+
+td {
+  display: flex;
+  flex-direction: column;
+}
+.table-cell-empty {
+  background-color: rgba(E5, E5, E5, 0.75);
+}
+
+.table-cell {
+  background-color: #E5E5E5;
+}
+
+.list-event {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-event li {
+  background-color: #99F451;
+  font-family: Economica;
+  font-size: 20px;
+  margin: 2px 5px;
+}
+
+.list-event li::before {
+  content: '\2022';
+  color: #03D2FF;
+  font-weight: bold;
+  /* font-size: 25px; */
+  margin-left: 2px;
+}
+
+/*******************************************************
+*                                                      *
+*                    Number styles                     *
+*                                                      *
+*******************************************************/
+.number {
+  text-align: center;
+  align-self: flex-end;
+  width: 34px;
+  height: 34px;
+  line-height: 30px;
+  border: 1px solid black;
+  border-radius: 17px;
+  background-color: white;
+  font-family: Orbitron;
+  font-size: 18px;
+}
+
+/*******************************************************
+*                                                      *
+*                    Button styles                     *
+*                                                      *
+*******************************************************/
+.add-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 50px;
+  line-height: 50px;
   color: white;
-}
+  background-color: #03D2FF;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
