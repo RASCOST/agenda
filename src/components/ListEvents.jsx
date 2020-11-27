@@ -7,13 +7,12 @@ const ListEvents = props => {
    * check if events exists
    */
   const checkEvents = events => {
-    console.log(props);
     if (events) {
       list = <ul className={'list-event'}>
-          {events.map(event => <li> {event.time} - {event.event}</li>)}
+          {events.map(event => <li> {event.schedule} - {event.title}</li>)}
         </ul>
     }
-    console.log(list);
+    
     return list
   }
 
