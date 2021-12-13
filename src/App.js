@@ -291,10 +291,8 @@ class App extends Component {
    */
   handleClickCells = event => {
     event.preventDefault()
-    //event.stopPropagation()
-    //event.nativeEvent.stopImmediatePropagation()
 
-    let day = event.target.children.length > 0 ? event.target.children[0].innerHTML : event.target.innerHTML
+    let day = event.currentTarget.children.length > 0 ? event.currentTarget.children[0].innerHTML : event.currentTarget.innerHTML
 
     this.setState({
       modalDay: day,

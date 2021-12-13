@@ -12,7 +12,7 @@ const ListEvents = props => {
           {events.map(event => <li key={`${event.day}${event.title}`} > {event.schedule} - {event.title}</li>)}
         </ul>
     }
-    
+
     return list
   }
 
