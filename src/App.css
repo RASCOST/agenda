@@ -3,7 +3,10 @@
 }
 
 body {
+  width: 100%;
+  height: 100%;
   background-color: #3B3B3B;
+  margin: 0;
 }
 
 /*******************************************************
@@ -26,13 +29,18 @@ body {
   margin-top: 20px;
   font-family: Ubuntu;
   font-size: 48px;
-  /* flex-grow: 2; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.agenda-month {
+  width: 300px;
+  text-align: center;
 }
 
 .agenda-header-year {
   font-family: Orbitron;
   font-size: 18px;
-  /* flex-grow: 1 */
   justify-content: flex-end;
 }
 
@@ -41,9 +49,21 @@ body {
   margin-right: 50px;
 }
 
+.less-than:hover {
+  cursor: pointer;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px;
+}
+
 .great-than {
   font-size: 48px;
   margin-left: 50px;
+}
+
+.great-than:hover {
+  cursor: pointer;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px;
 }
 
 /*******************************************************
@@ -51,30 +71,36 @@ body {
 *                    Table styles                      *
 *                                                      *
 *******************************************************/
+.table-container {
+  height: calc(100vh - 100px);
+}
+
 .table-agenda {
   width: 100%;
   height: 100%;
   border-spacing: 5px;
-  
 }
 
 .table-head {
   background-color: #BDF590;
   font-family: Ubuntu;
+  width: 14.28%;
   height: 21px;
   font-size: 18px;
 }
 
-td {
-  display: flex;
-  flex-direction: column;
-}
 .table-cell-empty {
-  background-color: rgba(E5, E5, E5, 0.75);
+  background-color: rgba(229, 229, 229, 0.75);
 }
 
 .table-cell {
   background-color: #E5E5E5;
+}
+
+.cell-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .list-event {
@@ -104,16 +130,24 @@ td {
 *                                                      *
 *******************************************************/
 .number {
-  text-align: center;
   align-self: flex-end;
+  text-align: center;
   width: 34px;
   height: 34px;
   line-height: 30px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 17px;
   background-color: white;
   font-family: Orbitron;
   font-size: 18px;
+}
+
+.number-days {
+  border: 1px solid black;
+}
+
+.number-current-day {
+  border: 3px solid #E10000;
 }
 
 /*******************************************************
@@ -122,7 +156,7 @@ td {
 *                                                      *
 *******************************************************/
 .add-button {
-  z-index: 2;
+  z-index: 10;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -133,8 +167,207 @@ td {
   margin-right: 10px;
   margin-bottom: 10px;
   font-size: 50px;
-  line-height: 50px;
+  /*line-height: 50px;*/
   color: white;
   background-color: #03D2FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/*******************************************************
+*                                                      *
+*                    Dialog styles                     *
+*                                                      *
+*******************************************************/
+.dialog-container {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset {
+  background-color: white;
+  border: 1px solid #E10000;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  padding: 20px;
+}
+
+legend {
+  background-color: #C4C4C4;
+  border: 1px solid #E10000;
+  border-radius: 10px;
+  font-size: 22px;
+  font-family: 'Ubuntu';
+  color: blue;
+}
+
+input {
+  width: 480px;
+  border-radius: 5px;
+  background-color: #C4C4C4;
+  border: 1px solid #E10000;
+  font-family: 'Economica';
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+fieldset > label {
+  font-family: Ubuntu;
+  color: blue;
+  font-size: 20px;
+}
+
+.day-label {
+  margin-right: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.day-select {
+  border: 1px solid #E10000;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 20px;
+  font-size: 20px; 
+  background-color: #C4C4C4;
+}
+
+input[type='time'] {
+  width: 80px;
+  margin-left: 5px;
+}
+
+ .button-save {
+   background-color: #252DEC;
+   color: white;
+   border-radius: 5px;
+   margin-top: 20px;
+   margin-right: 25px;
+ }
+
+ .button-cancel {
+  background-color: #E10000;
+  color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 25px;
+ }
+
+/*******************************************************
+*                                                      *
+*                    Modal styles                      *
+*                                                      *
+*******************************************************/
+.modal-day-container {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-day-close {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  border: 1px solid #E10000;
+}
+
+.modal-day-close:hover {
+  background-color: #E10000;
+}
+
+.modal-day-title {
+  color: #BDF590;
+  font-family: Ubuntu;
+  font-size: 48px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+
+.modal-day-subtitle {
+  color: #99F451;
+  font-weight: bolder;
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+}
+
+.modal-day-list {
+  background-color: whitesmoke;
+  width: 90%;
+  height: 530px;
+  /*border: 1px solid #E10000;
+  border-radius: 20px;*/
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  padding: 4px;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #C4C4C4;
+}
+
+.list-item:nth-child(even) {
+  background-color: #E5E5E5;
+}
+
+.modal-day-buttons {
+  width: 6%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #E10000;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.event-schedule {
+  width:4%;
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+.event-title {
+  width: 25%;
+  margin: 0;
+  background-color: whitesmoke;
+  margin-left: 5px;
+}
+
+.event-description {
+  width: 65%;
+  margin: 0;
+  background-color: whitesmoke;
+  margin-left: 5px;
 }

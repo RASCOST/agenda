@@ -1,13 +1,13 @@
 import React from 'react'
 
-const TableAgenda = props => {
+const TableAgenda = ({ styles, renderHead, renderCells }) => {
   return (
-    <table className={props.styles}>
+    <table className={styles}>
       <thead>
-        {props.renderHead()}
+        {renderHead()}
       </thead>
       <tbody>
-        {props.renderCells()}
+        {renderCells()}
       </tbody>
     </table>
   )

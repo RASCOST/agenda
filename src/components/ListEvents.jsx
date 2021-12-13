@@ -9,7 +9,7 @@ const ListEvents = props => {
   const checkEvents = events => {
     if (events) {
       list = <ul className={'list-event'}>
-          {events.map(event => <li> {event.schedule} - {event.title}</li>)}
+          {events.map(event => <li key={`${event.day}${event.title}`} > {event.schedule} - {event.title}</li>)}
         </ul>
     }
     

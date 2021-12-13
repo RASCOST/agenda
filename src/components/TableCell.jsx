@@ -2,10 +2,16 @@ import React from 'react'
 import Number from './Number'
 import ListEvents from './ListEvents'
 
-const TableCell = props => (
-  <td className={props.styles} onClick={props.onClick}>
-    <Number styles={'number'} number={props.day} />
-    <ListEvents events={props.events}/>
+const TableCell = ({ day, events, styles, numStyles, onClick}) => (
+  <td className={styles}>
+    <div className='cell-container' onClickCapture={onClick}>
+      { day ? <>
+                <Number styles={numStyles} number={day} /> 
+                <ListEvents events={events}/>
+              </>
+        : null }
+      
+    </div>
   </td>
 )
 

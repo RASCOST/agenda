@@ -1,0 +1,5 @@
+1 - nao deixar criar eventos no passado // FEITO
+2 - dias no select // FEITO
+3 - editar eventos // FEITO
+4 - actualizar a lista de eventos no DayListEvents
+5 - separar o css por componente

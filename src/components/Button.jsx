@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Button = props => (
-<button className={props.styles} title={props.title}>{props.text}</button>
-)
+const Button = React.forwardRef(({ styles, title, text, onClick}, ref) => (
+<button ref={ref} className={styles} title={title} onClick={onClick}>{text}</button>
+))
 
 export default Button

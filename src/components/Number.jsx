@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Number = props => (
-  <span className={'number'}>{props.number}</span>
+const Number = ({ number, styles }) => (
+  <span className={styles}>{number}</span>
 )
 
 export default Number
